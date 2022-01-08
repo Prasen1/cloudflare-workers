@@ -92,7 +92,7 @@ let html_content = `<div id="info">
                     </div>`
 html_content += `<button id="btn-show" onClick="displayInfo()">Picture of the Day</button>`
 html_content += `<div id="epic">
-                    <h4>Daily imagery collected by DSCOVR's Earth Polychromatic Imaging Camera (EPIC) instrument. Uniquely positioned at the Earth-Sun Lagrange point, EPIC provides full disc imagery of the Earth and captures unique perspectives of certain astronomical events such as lunar transits using a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.</h4>
+                    <p><em>Daily imagery collected by DSCOVR's Earth Polychromatic Imaging Camera (EPIC) instrument. Uniquely positioned at the Earth-Sun Lagrange point, EPIC provides full disc imagery of the Earth and captures unique perspectives of certain astronomical events such as lunar transits using a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.</em></p>
                     <img src="" alt="NASA EPIC-Earth Polychromatic Imaging Camera" width="500" height="500">
                     <p>Caption:</p>
                     <p>Latitute and Longitude:</p>
@@ -141,16 +141,16 @@ let html = `
         n=0;
         i=1;
         imgElem= document.querySelector("#epic>img");
-        p1= document.querySelectorAll("#epic>p")[0];
-        p3 = document.querySelectorAll("#epic>p")[2];
+        p2= document.querySelectorAll("#epic>p")[1];
+        p4 = document.querySelectorAll("#epic>p")[3];
         fetch(nasa_epic_url)
         .then(response => response.json())
         .then(data => {
             data.forEach(function(item){img_data.push([nasa_img_uri+item.date.split(" ")[0].replaceAll('-','/')+"/png/"+item.image+".png",item.caption+" Date: "+item.date,item.centroid_coordinates])})
             n=img_data.length;
             imgElem.src = img_data[0][0];
-            p1.innerHTML = img_data[0][1];
-            p3.innerHTML = img_data[0][2].lat+","+img_data[0][2].lon;
+            p2.innerHTML = img_data[0][1];
+            p4.innerHTML = img_data[0][2].lat+","+img_data[0][2].lon;
         })
         .catch(console.error); 
         function nextImg()
@@ -158,16 +158,16 @@ let html = `
             if(i<n)
             {
             imgElem.src = img_data[i][0];
-            p1.innerHTML = img_data[i][1];
-            p3.innerHTML = img_data[i][2].lat+","+img_data[i][2].lon;
+            p2.innerHTML = img_data[i][1];
+            p4.innerHTML = img_data[i][2].lat+","+img_data[i][2].lon;
             i++;
             }
             else
             {
             i=0;
             imgElem.src = img_data[i][0];
-            p1.innerHTML = img_data[i][1];
-            p3.innerHTML = img_data[i][2].lat+","+img_data[i][2].lon;
+            p2.innerHTML = img_data[i][1];
+            p4.innerHTML = img_data[i][2].lat+","+img_data[i][2].lon;
             }
         }
     </script>
