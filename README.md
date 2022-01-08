@@ -4,6 +4,6 @@
 
     Page: https://prasenjit.co.in/vcapp
     
-2. nasa_pod: Fetches and renders the latest picture of the day from [NASA APOD API](https://api.nasa.gov/). 
+2. nasa_pod: Fetches and renders the latest picture of the day from [NASA APOD API](https://api.nasa.gov/) and displays daily imagery collected by DSCOVR's Earth Polychromatic Imaging Camera (EPIC) instrument, using [EPIC API](https://epic.gsfc.nasa.gov/about/api). 
 
     Page: https://prasenjit.co.in/nasa
