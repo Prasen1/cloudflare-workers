@@ -59,6 +59,8 @@ let html_style = `h1{
      padding: 10px 10px;
     display: inline-block;
     text-align: center;
+     width: 850px;
+     margin: auto;
 }
  #btn-show{
     position:fixed;
